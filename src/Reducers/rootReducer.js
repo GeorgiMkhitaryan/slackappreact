@@ -3,16 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const rootReducer = createSlice({
   name: "registerLogin",
   initialState: {
-    subDomain: null,
     verified: false,
     emailRegistred: true,
     activateCode: false,
     errorMsg: null,
   },
   reducers: {
-    setSubDomain: (state, action) => {
-      state.subDomain = action.payload;
-    },
     emailRegistration: (state) => {
       state.emailRegistred = false;
       state.activateCode = true;

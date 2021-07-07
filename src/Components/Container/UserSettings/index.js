@@ -33,12 +33,7 @@ export default function UserSettings({ userSettings }) {
         .post(`${nodeURL}/auth/hascompanyname`, {
           companyname: debouncedcompanyname,
         })
-        .then((data) => {
-          //   setState((prevProps) => ({
-          //     ...prevProps,
-          //     companyname: e.target.value,
-          //   }))
-        })
+        .then(() => {})
         .catch((error) => {
           dispatch(
             setErrorMsg({

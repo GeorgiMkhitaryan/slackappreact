@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Redirect, useLocation, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import { hasLodined } from "../../Reducers/authReducer";
 import Login from "../../Components/Login";
 import { nodeURL } from "../../globalConstants";

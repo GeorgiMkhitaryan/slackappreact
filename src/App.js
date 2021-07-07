@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import SimpleContainer from "./Components/Container";
-import PrivateRoute from "../src/midlware/authComponent";
+import PrivateRoute from "./middleware/authComponent";
 import Header from "./Components/Header";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
@@ -17,7 +17,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/">
-          <Login></Login>
+        <Login></Login>
       </Route>
       <Route exact path="/signup">
         <div className="Login-form">

@@ -31,7 +31,7 @@ export default function Header() {
             Slack App
           </Typography>
           <Button color="inherit" onClick={() => dispatch(signUp())}>
-            Sing UP
+            Log out
           </Button>
         </Toolbar>
       </AppBar>
