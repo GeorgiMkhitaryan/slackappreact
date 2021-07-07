@@ -14,6 +14,7 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import useDebounce from "../../Hooks/useDebounce";
 import ErrorMessage from "../errorHendler/errorHendler";
+import { nodeURL } from "../../globalConstants";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -35,7 +36,7 @@ export default function SignUp() {
   useEffect(() => {
     if (companyname) {
       axios
-        .post("http://localhost:5000/auth/hascompanyname", {
+        .post(`${nodeURL}/auth/hascompanyname`, {
           companyname: companyname,
         })
         .then((data) => {
@@ -72,7 +73,7 @@ export default function SignUp() {
       return;
     }
     axios
-      .post("http://localhost:5000/auth/registration", {
+      .post(`${nodeURL}/auth/registration`, {
         comfirmPassword: singUpState.comfirmPassword,
         password: singUpState.password,
         companyId: singUpState.companyId,
@@ -93,7 +94,7 @@ export default function SignUp() {
 
   const emailVerification = () => {
     axios
-      .post("http://localhost:5000/auth/emailverification", {
+      .post(`${nodeURL}/auth/emailverification`, {
         email: singUpState.email,
         companyname: singUpState.companyname,
       })
@@ -116,7 +117,7 @@ export default function SignUp() {
 
   const activationCode = () => {
     axios
-      .post("http://localhost:5000/auth/activationcode", {
+      .post(`${nodeURL}/auth/activationcode`, {
         activationCode: singUpState.activationCode,
         companyId: singUpState.companyId,
       })

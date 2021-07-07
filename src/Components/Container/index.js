@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SettingsButton from "../SettingsButton";
 import axios from "axios";
 import UserSettings from "./UserSettings";
+import { nodeURL } from "../../globalConstants";
 
 export default function SimpleContainer(props) {
   const [userSettings, setUserSettings] = useState(null);
@@ -10,7 +11,7 @@ export default function SimpleContainer(props) {
 
     axios
       .post(
-        "http://localhost:5000/home/getsettings",
+        `${nodeURL}/home/getsettings`,
         {},
         {
           headers: {

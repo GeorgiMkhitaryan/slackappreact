@@ -7,6 +7,7 @@ import axios from "axios";
 import ErrorMessage from "../../errorHendler/errorHendler";
 import { useDispatch } from "react-redux";
 import { setErrorMsg } from "../../../Reducers/rootReducer";
+import { nodeURL } from "../../../globalConstants";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,7 @@ export default function UserSettings({ userSettings }) {
       userSettings.companyname !== debouncedcompanyname
     ) {
       axios
-        .post("http://localhost:5000/auth/hascompanyname", {
+        .post(`${nodeURL}/auth/hascompanyname`, {
           companyname: debouncedcompanyname,
         })
         .then((data) => {
@@ -52,7 +53,7 @@ export default function UserSettings({ userSettings }) {
   function saveSettings() {
     let token = localStorage.getItem("token");
     axios
-      .post("http://localhost:5000/home/changesettings", state, {
+      .post(`${nodeURL}/home/changesettings`, state, {
         headers: {
           Authorization: `Basic ${token}`,
         },

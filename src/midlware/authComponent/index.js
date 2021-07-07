@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Redirect, useLocation, useHistory } from "react-router-dom";
 import { hasLodined } from "../../Reducers/authReducer";
 import Login from "../../Components/Login";
+import { nodeURL } from "../../globalConstants";
 
 const PrivateRoute = (props) => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const PrivateRoute = (props) => {
   const history = useHistory();
   useEffect(() => {
     axios
-      .post("http://localhost:5000/auth/haslogined", null, {
+      .post(`${nodeURL}/auth/haslogined`, null, {
         headers: {
           Authorization: `Basic ${token}`,
         },

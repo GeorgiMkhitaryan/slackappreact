@@ -15,6 +15,7 @@ import axios from "axios";
 import ErrorMessage from "../errorHendler/errorHendler";
 import { setErrorMsg } from "../../Reducers/rootReducer";
 import { useDispatch } from "react-redux";
+import { nodeURL } from "../../globalConstants";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -30,7 +31,7 @@ export default function Login() {
 
   const loginUser = () => {
     axios
-      .post("http://localhost:5000/auth/login", state)
+      .post(`${nodeURL}/auth/login`, state)
       .then((data) => {
         localStorage.setItem("token", data.data.token);
         history.push("/home");
