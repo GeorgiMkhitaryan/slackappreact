@@ -48,7 +48,7 @@ export default function SimpleContainer(props) {
 
     axios
       .post(
-        `${nodeURL}/home/deleteUser`,
+        `${nodeURL}/home/deleteuser`,
         {},
         {
           headers: {
