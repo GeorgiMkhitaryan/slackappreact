@@ -33,6 +33,7 @@ export default function Login() {
     axios
       .post(`${nodeURL}/auth/login`, state)
       .then((data) => {
+        localStorage.setItem("token", data.data.token);
         history.push("/home");
       })
       .catch((error) => {

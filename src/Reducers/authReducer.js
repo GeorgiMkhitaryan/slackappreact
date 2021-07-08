@@ -9,7 +9,7 @@ export const authReducer = createSlice({
     hasLodined: (state, payload) => {
       state.verified = payload.payload;
     },
-    signUp: (state) => {
+    logOut: (state) => {
       localStorage.removeItem("token");
       state.verified = false;
     },
@@ -17,6 +17,6 @@ export const authReducer = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { hasLodined, signUp } = authReducer.actions;
+export const { hasLodined, logOut } = authReducer.actions;
 
 export default authReducer.reducer;

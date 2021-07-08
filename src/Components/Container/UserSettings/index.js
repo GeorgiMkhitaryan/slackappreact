@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import { Button } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
 import useDebounce from "../../../Hooks/useDebounce";
 import axios from "axios";
 import ErrorMessage from "../../errorHendler/errorHendler";
@@ -110,8 +111,15 @@ export default function UserSettings({ userSettings }) {
             setState((prevProps) => ({ ...prevProps, email: e.target.value }))
           }
         />
-        <Button color="inherit" onClick={() => saveSettings()}>
-          Send
+        <Button
+          onClick={() => saveSettings()}
+          variant="contained"
+          color="primary"
+          size="large"
+          className={classes.button}
+          startIcon={<SaveIcon />}
+        >
+          save
         </Button>
       </div>
       <ErrorMessage />
